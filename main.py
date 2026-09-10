@@ -1,16 +1,38 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import math
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+while True:
+    try:
+        x = float(input("Введите число x: "))
 
+        if x < math.sqrt(2):
+            print("Ошибка! При x < корень 2 подкоренные выражения отрицательны.")
+            print("Введите x >= 1.4142")
+            continue
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+        if math.tan(math.sqrt(x)) == 0:
+            print("Ошибка! Деление на ноль: tg(корень 0x) = 0. Введите другое x")
+            continue
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        y = -(math.sqrt(x**2 - 2) * 4 * x) / (2 * math.pi * math.tan(math.sqrt(x))) * math.e ** math.pi
+        print("y =", y)
+
+        if y > 0:
+            print("Значение положительное")
+        elif y < 0:
+            print("Значение отрицательное")
+        else:
+            print("Значение равно нулю")
+
+        if y == int(y):
+            if int(y) % 2 == 0:
+                print("Значение четное")
+            else:
+                print("Значение нечетное")
+        else:
+            print("Значение не целое - четность определить нельзя")
+
+        break
+
+    except ValueError:
+        print("Ошибка! Введено не число")
